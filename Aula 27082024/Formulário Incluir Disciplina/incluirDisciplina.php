@@ -39,10 +39,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Cadastro de disciplinas</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
         <h1>Criar Nova Disciplina</h1>
-        <form action="ex07_incluirDisciplina.php" method="POST">
+        <form action="incluirDisciplina.php" method="POST">
             Nome: <input type="text" name="nome">
             <br><br>
             Sigla: <input type="text" name="sigla">
