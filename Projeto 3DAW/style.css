@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*min-height: 120vh;*/
+    min-height: 100vh;
+}
+
+.center-box{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 440px;
+    /*height: 480px;*/
+    padding: 30px;
+}
+
+.topic-header{
+    text-align: center;
+    /*margin: 20px 0 40px 0;*/
+    margin: 20px 0 20px 0;
+}
+
+.topic-header header{
+    color: tomato;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    background-color: tomato;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover {
+    background-color: rgba(255, 99, 71, 0.5);
+}
+
+.form {
+    width: 100%;
+}
+
+label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.form-footer {
+    display: flex;
+    justify-content: center;
+}
+
+input[type="submit"].btn {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    background-color: tomato;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+input[type="submit"].btn:hover {
+    background-color: rgba(255, 99, 71, 0.8);
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: tomato;
+    color: #ffffff;
+    font-weight: 100;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
