@@ -89,13 +89,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     }
                     
                     if (!$encontrada) {
-                        echo "<tr><td colspan='3'>$mensagem</td></tr>";
+                        echo "<tr><td colspan='3'>$msg</td></tr>";
                     }
                 }
                 ?>
                 <?php
                 if ($_SERVER["REQUEST_METHOD"] === "POST" && !file_exists($arquivo)) {
-                    echo "<tr><td colspan='3'>$mensagem</td></tr>";
+                    echo "<tr><td colspan='3'>$msg</td></tr>";
                 }
                 ?>
             </tbody>
