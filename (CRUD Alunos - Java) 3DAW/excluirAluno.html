@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Excluir Aluno</title>
+    <script>
+        async function excluirAluno(event) {
+            event.preventDefault();
+
+            let matricula = document.getElementById("matricula").value;
+
+            let url = `http://localhost/(CRUD_Alunos_-_Java)_3DAW/ExcluirAluno.php`;
+
+            try {
+                let response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `matricula=${encodeURIComponent(matricula)}`
+                });
+                
+                if (response.ok) {
+                    let data = await response.text();
+                    console.log("Resposta OK: " + data);
+                    document.getElementById("msg").innerHTML = data;
+                } else {
+                    console.log("Requisição falhou: " + response.status);
+                }
+            } catch (error) {
+                console.error("Erro na requisição:", error);
+            }
+        }
+    </script>
+</head>
+<body>
+    <a href="index.html" class="back-button">
+        &#8592;
+    </a>
+    <div class="center-box">
+        <div class="topic-header">
+            <header>Excluir Aluno</header>
+        </div>
+        <div id="msg" class="message"></div>
+        <form id="excluirForm" onsubmit="excluirAluno(event)" class="form">
+            <label for="matricula">Matrícula do Aluno a Excluir:</label>
+            <input type="text" id="matricula" name="matricula" required>
+            <br><br>
+            <div class="form-footer">
+                <input type="submit" class="btn" value="Excluir Aluno">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

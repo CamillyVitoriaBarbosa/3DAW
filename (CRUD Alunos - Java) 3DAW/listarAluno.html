@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lista de Alunos</title>
+    <script>
+        async function ListarAlunos() {
+            try {
+                let response = await fetch("http://localhost/(CRUD_Alunos_-_Java)_3DAW/listarAlunos.php");
+                if (response.ok) {
+                    let objReturnJSON = await response.json();
+                    let tab = document.getElementById("alunos");
+                    tab.innerHTML = "";
+                    for (let i = 0; i < objReturnJSON.length; i++) {
+                        CriarLinhaTabela(objReturnJSON[i]);
+                    }
+                } else {
+                    console.error("Requisição falhou: " + response.status);
+                }
+            } catch (error) {
+                console.error("Erro ao buscar os alunos:", error);
+            }
+        }
+
+        function CriarLinhaTabela(aluno) {
+            let tab = document.getElementById("alunos");
+            let tr = document.createElement("tr");
+
+            aluno.forEach(info => {
+                let td = document.createElement("td");
+                td.textContent = info;
+                tr.appendChild(td);
+            });
+
+            tab.appendChild(tr);
+        }
+
+        window.onload = ListarAlunos;
+    </script>
+</head>
+<body>
+    <a href="index.html" class="back-button">&#8592;</a>
+    <div class="center-box">
+        <div class="topic-header">
+            <header>Lista de Alunos</header>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Matrícula</th>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Data de Nascimento</th>
+                </tr>
+            </thead>
+            <tbody id="alunos">
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
