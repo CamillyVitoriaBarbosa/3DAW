@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Alterar Pergunta</title>
+    <script>
+        async function AlterarPergunta(event) {
+            event.preventDefault();
+
+            let id = document.getElementById("id").value;
+            let novoId = document.getElementById("novo_id").value;
+            let pergunta = document.getElementById("pergunta").value;
+            let opA = document.getElementById("opA").value;
+            let opB = document.getElementById("opB").value;
+            let opC = document.getElementById("opC").value;
+            let opD = document.getElementById("opD").value;
+            let opCerta = document.getElementById("opCerta").value;
+
+            let url = `http://localhost/(CRUD_AV1_-_Java)_3DAW/alterarPergunta.php?id=${id}&novo_id=${novoId}&pergunta=${pergunta}&opA=${opA}&opB=${opB}&opC=${opC}&opD=${opD}&opCerta=${opCerta}`;
+
+            try {
+                let response = await fetch(url, { method: 'POST' });
+                if (response.ok) {
+                    let data = await response.text();
+                    document.getElementById("msg").innerHTML = data;
+                } else {
+                    console.log("Requisição falhou: " + response.status);
+                }
+            } catch (error) {
+                console.error("Erro na requisição:", error);
+            }
+        }
+    </script>
+</head>
+<body>
+    <a href="menuPergunta.html" class="back-button">
+        &#8592;
+    </a>
+    <div class="center-box">
+        <div class="topic-header">
+            <header>Alterar Pergunta</header>
+        </div>
+        <?php if (!empty($msg)): ?>
+            <div class="message" id="msg">
+                <?php echo $msg; ?>
+            </div>
+        <?php endif; ?>
+        <form onsubmit="AlterarPergunta(event)" method="POST" class="form">
+            <label for="id">Id da Pergunta a alterar:</label>
+            <input type="text" id="id" name="id" required>
+            <br><br>
+            <label for="novo_id">Novo Id da pergunta:</label>
+            <input type="text" id="novo_id" name="novo_id" required>
+            <br><br>
+            <label for="pergunta">Pergunta:</label>
+            <input type="text" id="pergunta" name="pergunta">
+            <br><br>
+            <label for="opA">Opção A:</label>
+            <input type="text" id="opA" name="opA">
+            <br><br>
+            <label for="opB">Opção B:</label>
+            <input type="text" id="opB" name="opB">
+            <br><br>
+            <label for="opC">Opção C:</label>
+            <input type="text" id="opC" name="opC">
+            <br><br>
+            <label for="opD">Opção D:</label>
+            <input type="text" id="opD" name="opD">
+            <br><br>
+            <label for="opCerta">Letra da opção certa:</label>
+            <input type="text" id="opCerta" name="opCerta">
+            <br><br>
+            <div class="form-footer">
+                <input type="submit" class="btn" value="Alterar Pergunta">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

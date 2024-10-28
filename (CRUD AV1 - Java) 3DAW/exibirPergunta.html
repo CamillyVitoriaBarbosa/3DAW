@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Buscar Pergunta</title>
+    <script>
+        async function buscarPergunta(event) {
+            event.preventDefault();
+            
+            const pergunta = document.getElementById("pergunta").value;
+            const url = 'http://localhost/(CRUD_AV1_-_Java)_3DAW/buscarPergunta.php'; // Altere para o endpoint correto se necessário
+            
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `pergunta=${encodeURIComponent(pergunta)}`
+                });
+
+                if (response.ok) {
+                    const data = await response.text();
+                    document.getElementById("resultado").innerHTML = data; // Atualiza a tabela com os dados recebidos
+                } else {
+                    console.error("Erro na requisição:", response.status);
+                }
+            } catch (error) {
+                console.error("Erro na requisição:", error);
+            }
+        }
+    </script>
+</head>
+<body>
+    <a href="menuPergunta.html" class="back-button">
+        &#8592;
+    </a>
+    <div class="center-box">
+        <div class="topic-header">
+            <header>Buscar Pergunta</header>
+        </div>
+        <form onsubmit="buscarPergunta(event)" class="form">
+            <label for="pergunta">Id da Pergunta:</label>
+            <input type="text" id="pergunta" name="pergunta" required>
+            <br><br>
+            <div class="form-footer">
+                <input type="submit" class="btn" value="Buscar Pergunta">
+            </div>
+        </form>
+    
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Pergunta</th>
+                    <th>Opção A</th>
+                    <th>Opção B</th>
+                    <th>Opção C</th>
+                    <th>Opção D</th>
+                    <th>Opção Certa</th>
+                </tr>
+            </thead>
+            <tbody id="resultado">
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

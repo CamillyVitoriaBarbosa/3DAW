@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Incluir Pergunta</title>
+    <script>
+        async function enviarPergunta(event) {
+            event.preventDefault();
+
+            const idPergunta = document.getElementById("idPergunta").value;
+            const pergunta = document.getElementById("pergunta").value;
+            const opA = document.getElementById("opA").value;
+            const opB = document.getElementById("opB").value;
+            const opC = document.getElementById("opC").value;
+            const opD = document.getElementById("opD").value;
+            const opCerta = document.getElementById("opCerta").value;
+
+            try {
+                const response = await fetch('incluirPergunta.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `idPergunta=${encodeURIComponent(idPergunta)}&pergunta=${encodeURIComponent(pergunta)}&opA=${encodeURIComponent(opA)}&opB=${encodeURIComponent(opB)}&opC=${encodeURIComponent(opC)}&opD=${encodeURIComponent(opD)}&opCerta=${encodeURIComponent(opCerta)}`
+                });
+
+                if (response.ok) {
+                    const data = await response.text();
+                    document.getElementById("msg").innerHTML = data;
+                } else {
+                    console.log("Erro na requisição:", response.status);
+                }
+            } catch (error) {
+                console.error("Erro na requisição:", error);
+            }
+        }
+    </script>
+</head>
+<body>
+    <a href="menuPergunta.html" class="back-button">
+        &#8592;
+    </a>
+    <div class="center-box">
+        <div class="topic-header">
+            <header>Cadastrar Pergunta</header>
+        </div>
+        <div class="message" id="msg"></div>
+        <form onsubmit="enviarPergunta(event)" class="form">
+            <label for="idPergunta">Id da pergunta:</label>
+            <input type="text" id="idPergunta" name="idPergunta" required>
+            <br><br>
+            <label for="pergunta">Pergunta:</label>
+            <input type="text" id="pergunta" name="pergunta" required>
+            <br><br>
+            <label for="opA">Opção A:</label>
+            <input type="text" id="opA" name="opA" required>
+            <br><br>
+            <label for="opB">Opção B:</label>
+            <input type="text" id="opB" name="opB" required>
+            <br><br>
+            <label for="opC">Opção C:</label>
+            <input type="text" id="opC" name="opC" required>
+            <br><br>
+            <label for="opD">Opção D:</label>
+            <input type="text" id="opD" name="opD" required>
+            <br><br>
+            <label for="opCerta">Letra da opção certa:</label>
+            <input type="text" id="opCerta" name="opCerta" required>
+            <br><br>
+            <div class="form-footer">
+                <input type="submit" class="btn" value="Inserir Pergunta">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

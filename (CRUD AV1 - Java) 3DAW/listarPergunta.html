@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Lista de Perguntas</title>
+    <script>
+        async function ListarPerguntas() {
+            try {
+                let response = await fetch("listarPerguntas.php");
+                if (response.ok) {
+                    let perguntas = await response.json();
+                    let tab = document.getElementById("perguntas");
+                    tab.innerHTML = "";
+                    for (let i = 0; i < perguntas.length; i++) {
+                        CriarLinhaTabela(perguntas[i]);
+                    }
+                } else {
+                    console.error("Requisição falhou: " + response.status);
+                }
+            } catch (error) {
+                console.error("Erro ao buscar as perguntas:", error);
+            }
+        }
+
+        function CriarLinhaTabela(pergunta) {
+            let tab = document.getElementById("perguntas");
+            let tr = document.createElement("tr");
+
+            pergunta.forEach(info => {
+                let td = document.createElement("td");
+                td.textContent = info;
+                tr.appendChild(td);
+            });
+
+            tab.appendChild(tr);
+        }
+
+        window.onload = ListarPerguntas;
+    </script>
+</head>
+<body>
+    <a href="menuPergunta.html" class="back-button">&#8592;</a>
+    <div class="center-box">
+        <div class="topic-header">
+            <header>Lista de Perguntas</header>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Pergunta</th>
+                    <th>Opção A</th>
+                    <th>Opção B</th>
+                    <th>Opção C</th>
+                    <th>Opção D</th>
+                    <th>Opção Certa</th>
+                </tr>
+            </thead>
+            <tbody id="perguntas">
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
