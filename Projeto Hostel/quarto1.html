@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospedagem</title>
+  <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+  <div class="desktop">
+    <header class="header">
+      <div class="header-content">
+        <img src="imagens/logo.png" alt="Logo" class="logo">
+        <nav class="nav">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="https://www.maladeaventuras.com/santa-teresa-rio-de-janeiro/" target="_blank" rel="noopener noreferrer" class="nav-link">Parceiros</a>
+        </nav>
+        <div class="login">
+          <a href="login.html" class="nav-link">Login</a>
+        </div>
+      </div>
+    </header>
+    
+    <div class="container">
+      <main class="main-content">
+        <div class="property-header">
+          <a href="quartos.html" class="back-link">← Ver todas as propriedades</a>
+        </div>
+
+        <div class="property-details">
+          <div class="foto-animada">
+            <div class="image-container large">
+              <img class="element-large" alt="Imagem quarto1" src="imagens/quarto1.png">
+            </div>
+            <div class="image-container small">
+              <img class="element-small" alt="Imagem 2 quarto1" src="imagens/quarto1-1.png">
+            </div>
+          </div>
+          <div class="property-info">
+            <h2>Quarto Para 4</h2>
+            <h3>Santa Teresa</h3>
+            <div class="rating">
+              <img><ion-icon class="star-icon" alt="Star" name="star"></ion-icon>
+              <span>5.0</span>
+            </div>
+            <h4>Hostel Almeidão</h4>
+            <p>4 Pessoas | 4 Camas | 1 Banheiro(s)</p>
+          </div>
+        </div>
+
+        <div class="amenities">
+          <h3>Contém</h3>
+          <ul>
+            <li>
+              <img><ion-icon alt="Ar Condicionado" name="snow-outline"></ion-icon>
+              <span>Ar Condicionado</span>
+            </li>
+            <li>
+              <img><ion-icon alt="Cozinha" name="restaurant-outline"></ion-icon>
+              <span>Cozinha</span>
+            </li>
+            <li>
+              <img><ion-icon alt="Armário" name="file-tray-stacked-outline"></ion-icon>
+              <span>Armário</span>
+            </li>
+            <li>
+              <img><ion-icon alt="Lavanderia" name="shirt-outline"></ion-icon>
+              <span>Lavanderia</span>
+            </li>
+            <li>
+              <img><ion-icon alt="Serviço de Quarto" name="build-outline"></ion-icon>
+              <span>Serviço de Quarto</span>
+            </li>
+            <li>
+              <img><ion-icon alt="Televisão" name="tv-outline"></ion-icon>
+              <span>Televisão</span>
+            </li>
+            <li>
+              <img><ion-icon alt="Wi-fi" name="wifi-outline"></ion-icon>
+              <span>Wi-fi</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="reservation">
+          <button class="reserve-button" onclick="showPaymentOptions()">Reserve Agora</button>
+          <div class="price">
+            <span>R$200</span>
+          </div>
+        </div>
+
+        <section class="payment-section payment-modal" id="payment-section" style="display: none;">
+          <button class="close-button" onclick="hidePaymentSection()">←</button>
+          <h3>Escolha a Forma de Pagamento</h3>
+          <div class="payment-options">
+            <button class="payment-button" onclick="showCardPayment()">Cartão</button>
+            <button class="payment-button" onclick="showPixPayment()">PIX</button>
+          </div>
+          <div class="card-payment" id="card-payment" style="display: none;">
+            <h4>Pagamento com Cartão</h4>
+            <label for="card-number">Número do Cartão:</label>
+            <input type="text" id="card-number">
+            <label for="card-name">Nome no Cartão:</label>
+            <input type="text" id="card-name">
+            <label for="card-expiry">Data de Validade:</label>
+            <input type="text" id="card-expiry">
+            <label for="card-cvc">CVC:</label>
+            <input type="text" id="card-cvc">
+            <button class="confirm-button">Confirmar Pagamento</button>
+          </div>
+          <div class="pix-payment" id="pix-payment" style="display: none;">
+            <h4>Pagamento com PIX</h4>
+            <img id="pix-qr-code" src="https://th.bing.com/th/id/OIP.ibrIQ-48LRowUpGr57ZlfAHaHa?pid=ImgDet&w=182&h=182&c=7" alt="QR Code para pagamento">
+            <label for="pix-proof">Comprovante de Pagamento:</label>
+            <input type="file" id="pix-proof">
+            <button class="confirm-button">Confirmar Pagamento</button>
+          </div>
+        </section>        
+
+        <section class="details">
+          <h3>Detalhes</h3>
+          <p>
+            A melhor opção de hospedagem para quem deseja uma aconchegante
+            hospedagem na zona sul do Rio de Janeiro. Localizado a 10 min do
+            Aeroporto Santos Dummont, um hotel moderno, prático e muito
+            confortável, ideal para quem precisa ficar próximo ao centro do RJ
+            ou deseja uma opção de lazer, por estar bem próximo aos principais
+            pontos turísticos da cidade. Todos os quartos possuem Smart TV
+            40", ar condicionado, frigobar, cofre, água quente e fria, mesa de
+            trabalho e wifi. Praia de Copacabana - 5 kms Metro Catete - 400m
+            Aeroporto SDU - 5 kms Lapa - 8 kms Cristo Redentor - 6 kms
+          </p>
+        </section>
+
+        <section class="rating-section">
+          <h3>Nota</h3>
+          <div class="rating-box">
+            <span>4,9</span>
+          </div>
+          <p>
+            Muito bom
+            <br>
+            Com base em 4.836 avaliações verificadas de hóspedes
+          </p>
+        </section>
+      </main>
+    </div>
+  </div>
+  <link rel="stylesheet" href="styles2.css">
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <script>
+    function showPaymentOptions() {
+      document.getElementById('payment-section').style.display = 'block';
+      document.getElementById('payment-section').classList.add('payment-modal');
+    }
+
+    function hidePaymentSection() { 
+      document.getElementById('payment-section').style.display = 'none'; 
+    }
+
+    function showCardPayment() {
+      document.getElementById('card-payment').style.display = 'block';
+      document.getElementById('pix-payment').style.display = 'none';
+    }
+
+    function showPixPayment() {
+      document.getElementById('pix-payment').style.display = 'block';
+      document.getElementById('card-payment').style.display = 'none';
+    }
+
+    function confirmCardPayment() {
+      const cardNumber = document.getElementById('card-number').value;
+      const cardName = document.getElementById('card-name').value;
+      const cardExpiry = document.getElementById('card-expiry').value;
+      const cardCVC = document.getElementById('card-cvc').value;
+
+      const cardNumberValid = /^[0-9]{16}$/.test(cardNumber);
+      const cardNameValid = /^[A-Za-z\s]+$/.test(cardName);
+      const cardExpiryValid = /^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/.test(cardExpiry);
+      const cardCVCValid = /^[0-9]{3,4}$/.test(cardCVC);
+
+      if (cardNumberValid && cardNameValid && cardExpiryValid && cardCVCValid) {
+        alert('Pagamento com cartão confirmado!');
+      } else {
+        alert('Por favor, preencha todos os campos corretamente.');
+      }
+    }
+
+    function confirmPixPayment() {
+      const pixProof = document.getElementById('pix-proof').files.length > 0;
+
+      if (pixProof) {
+        alert('Pagamento com PIX confirmado!');
+      } else {
+        alert('Por favor, faça o upload do comprovante de pagamento.');
+      }
+    }
+
+    document.querySelector('.card-payment .confirm-button').addEventListener('click', confirmCardPayment);
+    document.querySelector('.pix-payment .confirm-button').addEventListener('click', confirmPixPayment);
+
+  </script>
+</body>
+</html>

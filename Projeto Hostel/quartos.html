@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles1.css">
+  <title>Quartos</title>
+</head>
+<body>
+  <div class="desktop">
+    <header class="header">
+      <div class="header-content">
+        <img src="imagens/logo.png" alt="Logo" class="logo">
+        <nav class="nav">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="https://www.maladeaventuras.com/santa-teresa-rio-de-janeiro/" target="_blank" rel="noopener noreferrer" class="nav-link">Parceiros</a>
+        </nav>
+        <div class="login">
+          <a href="login.html" class="nav-link">Login</a>
+        </div>
+      </div>
+    </header>
+    <main class="main">
+      <aside class="filter-sidebar">
+        <h3>Filtros</h3>
+        <label for="max-capacity">Capacidade Máxima:</label>
+        <select id="max-capacity">
+          <option value="">Qualquer</option>
+          <option value="4">Até 4 pessoas</option>
+          <option value="8">Até 8 pessoas</option>
+          <option value="12">Até 12 pessoas</option>
+        </select>
+        <label for="price-range">Faixa de Preço:</label>
+        <select id="price-range">
+          <option value="">Qualquer</option>
+          <option value="100">Até R$ 100</option>
+          <option value="150">Até R$ 150</option>
+          <option value="200">Até R$ 200</option>
+        </select>
+        <label for="bed-type">Tipo de Cama:</label>
+        <select id="bed-type">
+          <option value="">Qualquer</option>
+          <option value="solteiro">Cama de Solteiro</option>
+          <option value="casal">Cama de Casal</option>
+          <option value="beliche">Cama Beliche</option>
+        </select>
+        <label for="bathrooms">Número de Banheiros:</label>
+        <input type="number" id="bathrooms" min="0" placeholder="Qualquer">
+        <label for="amenities">Comodidades:</label>
+        <input type="checkbox" id="lavanderia" value="lavanderia"> Lavanderia<br>
+        <input type="checkbox" id="ar-condicionado" value="ar-condicionado"> Ar-Condicionado<br>
+        <input type="checkbox" id="wifi" value="wifi"> Wi-Fi<br>
+        <input type="checkbox" id="servico-de-quarto" value="servico-de-quarto"> Serviço de Quarto<br>
+        <label for="checkin-date">Data de Check-In:</label>
+        <input type="date" id="checkin-date">
+        <label for="checkout-date">Data de Check-Out:</label>
+        <input type="date" id="checkout-date">
+        <label for="num-people">Número de Pessoas:</label>
+        <input type="number" id="num-people" min="1" placeholder="Qualquer">
+        <button class="apply-filter" onclick="applyFilters()">Aplicar Filtros</button>
+      </aside>
+      <section class="rooms-section" id="rooms-section">
+        <h2>Escolha o quarto</h2>
+        <div class="room-card" data-capacity="4" data-price="200" data-bed="solteiro" data-bathrooms="1" data-lavanderia="true" data-ar-condicionado="true" data-wifi="true" data-servico-de-quarto="true">
+          <a href="quarto1.html">
+            <img src="imagens/quarto1.png" alt="Room for 4">
+          </a>
+          <div class="room-info">
+            <h3>Quarto Para 4</h3>
+            <p>
+              Capacidade máxima: 4 pessoas<br>
+              Acomodação com: ar condicionado, frigobar, TV com serviço de streaming<br>
+              4 Camas de Solteiro<br>
+              Banheiro Privativo: acessibilidade, banheira, secador de cabelos<br>
+              Café da Manhã
+            </p>
+            <span>R$ 200 a diária</span>
+          </div>
+        </div>
+        <div class="room-card" data-capacity="8" data-price="150" data-bed="solteiro" data-bathrooms="1" data-lavanderia="false" data-ar-condicionado="true" data-wifi="true" data-servico-de-quarto="true">
+          <a href="quarto1.html">
+            <img src="imagens/quarto2.png" alt="Room for 8">
+          </a>
+          <div class="room-info">
+            <h3>Quarto Para 8</h3>
+            <p>
+              Capacidade máxima: 8 pessoas<br>
+              Acomodação com: ar condicionado, frigobar, TV com serviço de streaming<br>
+              8 Camas de Solteiro<br>
+              Café da Manhã
+            </p>
+            <span>R$ 150 a diária</span>
+          </div>
+        </div>
+        <div class="room-card" data-capacity="12" data-price="100" data-bed="solteiro" data-bathrooms="1" data-lavanderia="false" data-ar-condicionado="true" data-wifi="true" data-servico-de-quarto="true">
+          <a href="quarto1.html">
+            <img src="imagens/quarto3.png" alt="Room for 12">
+          </a>
+          <div class="room-info">
+            <h3>Quarto Para 12</h3>
+            <p>
+              Capacidade máxima: 12 pessoas<br>
+              Acomodação com: ar condicionado, frigobar, TV com serviço de streaming<br>
+              12 Camas de Solteiro<br>
+              Banheiro Privativo: acessibilidade, secador de cabelos<br>
+              Café da Manhã
+            </p>
+            <span>R$ 100 a diária</span>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    function applyFilters() {
+      const capacity = document.getElementById('max-capacity').value;
+      const price = document.getElementById('price-range').value;
+      const bedType = document.getElementById('bed-type').value;
+      const bathrooms = document.getElementById('bathrooms').value;
+      const lavanderia = document.getElementById('lavanderia').checked;
+      const arCondicionado = document.getElementById('ar-condicionado').checked;
+      const wifi = document.getElementById('wifi').checked;
+      const servicoDeQuarto = document.getElementById('servico-de-quarto').checked;
+      const rooms = document.querySelectorAll('.room-card');
+  
+      rooms.forEach(room => {
+        const roomCapacity = room.dataset.capacity;
+        const roomPrice = room.dataset.price;
+        const roomBed = room.dataset.bed;
+        const roomBathrooms = room.dataset.bathrooms;
+        const roomLavanderia = room.dataset.lavanderia === "true";
+        const roomArCondicionado = room.dataset.arCondicionado === "true";
+        const roomWifi = room.dataset.wifi === "true";
+        const roomServicoDeQuarto = room.dataset.servicoDeQuarto === "true";
+        
+        let isMatch = true;
+  
+        if (capacity && roomCapacity !== capacity) isMatch = false;
+        if (price && roomPrice !== price) isMatch = false;
+        if (bedType && roomBed !== bedType) isMatch = false;
+        if (bathrooms && roomBathrooms !== bathrooms) isMatch = false;
+        if (lavanderia && !roomLavanderia) isMatch = false;
+        if (arCondicionado && !roomArCondicionado) isMatch = false;
+        if (wifi && !roomWifi) isMatch = false;
+        if (servicoDeQuarto && !roomServicoDeQuarto) isMatch = false;
+  
+        room.style.display = isMatch ? 'block' : 'none';
+      });
+    }
+  </script>
+  
+</body>
+</html>

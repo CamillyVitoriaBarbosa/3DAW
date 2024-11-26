@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="styles3.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <img src="imagens/logo.png" alt="Logo" class="logo">
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="quartos.html" class="nav-link">Hospedagem</a>
+        <a href="https://www.maladeaventuras.com/santa-teresa-rio-de-janeiro/" target="_blank" rel="noopener noreferrer" class="nav-link">Parceiros</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="desktop">
+    <section class="login-wrapper">
+      <article class="login">
+        <div class="frame">
+          <h1 class="text-wrapper">Login Administrador</h1>
+
+          <form class="register" action="login.php" method="POST">
+            <div class="email">
+              <label for="admin-email" class="text-wrapper-4">Email</label>
+              <div class="overlap-group-3">
+                <input
+                  type="email"
+                  id="admin-email"
+                  name="email"
+                  placeholder="Digite seu Email"
+                  class="text-wrapper-5"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="senha">
+              <label for="admin-password" class="text-wrapper-4">Senha</label>
+              <div class="overlap-group-3">
+                <input
+                  type="password"
+                  id="admin-password"
+                  name="senha"
+                  placeholder="Digite sua Senha"
+                  class="text-wrapper-5"
+                  required
+                />
+              </div>
+            </div>
+
+            <button type="submit" class="login-button">
+              <span class="text-wrapper-3">Entrar</span>
+            </button>
+          </form>
+
+          <div class="overlap-group-2">
+            <span class="text-wrapper-2">Login como</span>
+            <a href="login.html" class="administrador">Usuário</a>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
