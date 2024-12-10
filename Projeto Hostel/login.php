@@ -13,7 +13,7 @@ $email = $_POST['email'] ?? null;
 $senha = $_POST['senha'] ?? null;
 
 if ($email && $senha) {
-    $sql = "SELECT * FROM Login WHERE Email = ? AND ADM IS NOT NULL";
+    $sql = "SELECT * FROM Login WHERE Email = ? AND ADM = 1";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $email);
     $stmt->execute();
