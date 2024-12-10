@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 25/11/2024 às 14:17
+-- Tempo de geração: 10/12/2024 às 12:14
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -41,10 +41,6 @@ CREATE TABLE `Login` (
 INSERT INTO `Login` (`ID`, `Email`, `Senha`, `ADM`) VALUES
 (1, 'adm@hostelalmeidao', 'adm123', 1),
 (2, 'usuario@gmail.com', 'adm123', NULL);
-
---
--- Índices de tabela `Login`
---
 
 -- --------------------------------------------------------
 
